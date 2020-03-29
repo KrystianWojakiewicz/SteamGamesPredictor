@@ -1,6 +1,7 @@
 import pandas as ps
 import os
 from enum import Enum
+import hashlib
 
 
 class Paths(Enum):
@@ -24,8 +25,21 @@ def write_csv_to_file(csv_path, out_filename):
         f.write(df.to_string())
 
 
+def encode_dataset_values():
+    game_dict = {}
+    df = read_csv(Paths.STEAM.value)
+    for label, content in df.items():
+        for c in content:
+            c_hash_hex = hashlib.md5(c.encode()).hexdigest()
+            game_dict[c] = int(c_hash_hex, 16)
+
+    print(game_dict['Team Fortress Classic'])
+    print('size:' + str(len(game_dict.keys())))
+
+
 def main():
-    write_csv_to_file(Paths.STEAM.value, 'parsed_steam.csv')
+    # write_csv_to_file(Paths.STEAM.value, 'parsed_steam.csv')
+    encode_dataset_values()
 
 
 if __name__ == '__main__':
