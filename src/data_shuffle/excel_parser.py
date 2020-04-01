@@ -32,6 +32,3 @@ def encode_dataset_values():
         for c in content:
             c_hash_hex = hashlib.md5(c.encode()).hexdigest()
             game_dict[c] = int(c_hash_hex, 16)
-
-    print(game_dict['Team Fortress Classic'])
-    print('size:' + str(len(game_dict.keys())))
