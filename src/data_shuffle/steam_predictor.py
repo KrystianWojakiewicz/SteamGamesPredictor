@@ -2,13 +2,9 @@ from __future__ import division, print_function, unicode_literals
 import numpy as np
 import pandas as pd
 from src.data_shuffle.plotting_utilities import *
-import src.data_shuffle.excel_parser as ep
 from src.data_shuffle.bi_dict import BiDict
-
-
-def load_data(steam_path, file):
-    csv_path = os.path.join(steam_path, file)
-    return pd.read_csv(csv_path, error_bad_lines=False)
+from src.data_shuffle.excel_parser import load_csv
+from src.data_shuffle.common_constants import Paths
 
 
 def encode_attribute_from_column(dataframe_column):
@@ -60,8 +56,9 @@ def produce_encoded_dataframe(relevant_attributes, attributes_to_concat, raw_dat
 
 
 def main():
-    steam = ep.load_csv(ep.Paths.STEAM.value)
+    steam = load_csv(Paths.STEAM.value)
     steam_cp = steam.copy()
+    create_and_show_hist_from_dataframe_column(steam_cp['platforms'])
 
     encoded_devs, _ = encode_attribute_from_column(steam_cp['developer'])
     encoded_publishers, _ = encode_attribute_from_column(steam_cp['publisher'])

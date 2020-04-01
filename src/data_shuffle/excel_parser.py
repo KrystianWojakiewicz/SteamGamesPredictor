@@ -1,17 +1,6 @@
 import pandas as pd
-import os
-from enum import Enum
 import hashlib
-
-
-class Paths(Enum):
-    ALL_DATA_FOLDER = os.path.dirname(os.path.realpath(__file__)) + '\\data'
-    STEAM = ALL_DATA_FOLDER + '\\steam.csv'
-    STEAM_DESCRIPTION_DATA = ALL_DATA_FOLDER + '\\steam_description_data.csv'
-    STEAM_MEDIA_DATA = ALL_DATA_FOLDER + '\\steam_media_data.csv'
-    STEAM_REQUIREMENTS_DATA = ALL_DATA_FOLDER + '\\steam_requirements_data.csv'
-    STEAM_SUPPORT_INFO = ALL_DATA_FOLDER + '\\steam_support_info.csv'
-    STEAMSPY_TAG_DATA = ALL_DATA_FOLDER + '\\steamspy_tag_data.csv'
+from src.data_shuffle.common_constants import Paths
 
 
 def load_csv(csv_path):
