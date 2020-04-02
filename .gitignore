@@ -1,2 +1,9 @@
 # IDEA files #
 *.idea
+
+# Python-generated files #
+src/__pycache__/
+src/data_shuffle/__pycache__/
+
+# Jupyter-generated files #
+src/data_shuffle/jupyter/.ipynb_checkpoints/
