@@ -1,5 +1,4 @@
 import pandas as pd
-import hashlib
 from src.data_shuffle.common_constants import Paths
 
 
@@ -12,12 +11,3 @@ def write_csv_to_file(csv_path, out_filename):
     with open(out_filepath, 'w', encoding='utf-8') as f:
         df = load_csv(csv_path)
         f.write(df.to_string())
-
-
-def encode_dataset_values():
-    game_dict = {}
-    df = load_csv(Paths.STEAM.value)
-    for label, content in df.items():
-        for c in content:
-            c_hash_hex = hashlib.md5(c.encode()).hexdigest()
-            game_dict[c] = int(c_hash_hex, 16)
