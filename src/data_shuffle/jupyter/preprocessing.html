@@ -2,7 +2,7 @@
 <html>
 <head><meta charset="utf-8" />
 
-<title>steam_predictor</title>
+<title>preprocessing</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
@@ -13078,7 +13078,7 @@ div#notebook {
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="Data-shuffle-part">Data shuffle part<a class="anchor-link" href="#Data-shuffle-part">&#182;</a></h1><p><strong>Steam Games Predictor</strong> by: <em>Kornel Zieliński, Krystian Rodzaj, Krystian Wojakiewicz</em></p>
-<h2 id="Introduction">Introduction<a class="anchor-link" href="#Introduction">&#182;</a></h2><p>The topic of our project is centered around neural networks and machine learning algorithms. We decided to work in the <em>active</em> mode. After we had decided the basic topic of the project, the first thing that came to mind was the <strong>Kaggle</strong> portal, which holds large amounts of datasets usable for data analysis and machine learning. The key was to pick such dataset, for which we would be able to accurately test our results, as well as keep the dataset relatively small, for practical purposes. We decided on a dataset containing video games details fetched from the <strong>Steam</strong> gaming service using their API. The dataset is just under one year old. This creates an opportunity for us to later test our results using the same <strong>Steam API</strong> to gather newer data on recently released games and treat them as input for our algorithms.</p>
+<h2 id="Introduction">Introduction<a class="anchor-link" href="#Introduction">&#182;</a></h2><p>The topic of our project is centered around neural networks and machine learning algorithms. We decided to work in the <em>active</em> mode. After we had decided the basic topic of the project, the first thing that came to our mind was the <strong>Kaggle</strong> portal, which holds large amounts of datasets usable for data analysis and machine learning. The key was to pick such dataset, for which we would be able to accurately test our results, as well as keep the dataset relatively small, for practical purposes. We decided on a dataset containing video games details fetched from the <strong>Steam</strong> gaming service using their API. The dataset is just under one year old. This creates an opportunity for us to later test our results using the same <strong>Steam API</strong> to gather newer data on recently released games and treat them as input for our algorithms. The main goal and at the same time the output of our network is the total rating which is based on positive and negative ratings. So the task of our network is to predict how the game will be evaluated by people and how successful it will be in the gaming market. Those are the two main types of tasks that can be solved by the machine learning algorithms - linear regression and classification.</p>
 
 </div>
 </div>
@@ -13100,7 +13100,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span><span class="p">,</span> <span class="n">unicode_literals</span>
@@ -13134,7 +13134,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">save_fig</span><span class="p">(</span><span class="n">fig_id</span><span class="p">,</span> <span class="n">tight_layout</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">fig_extension</span><span class="o">=</span><span class="s2">&quot;png&quot;</span><span class="p">,</span> <span class="n">resolution</span><span class="o">=</span><span class="mi">300</span><span class="p">):</span>
@@ -13160,7 +13160,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
@@ -13186,7 +13186,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">steam</span> <span class="o">=</span> <span class="n">load_data</span><span class="p">(</span><span class="s1">&#39;../data&#39;</span><span class="p">,</span> <span class="s1">&#39;steam.csv&#39;</span><span class="p">)</span>
@@ -13203,7 +13203,7 @@ div#notebook {
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[5]:</div>
+    <div class="prompt output_prompt">Out[4]:</div>
 
 
 
@@ -13380,7 +13380,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">steam</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
@@ -13449,7 +13449,7 @@ memory usage: 3.7+ MB
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">steam</span><span class="p">[</span><span class="s2">&quot;owners&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
@@ -13465,7 +13465,7 @@ memory usage: 3.7+ MB
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[7]:</div>
+    <div class="prompt output_prompt">Out[6]:</div>
 
 
 
@@ -13511,7 +13511,7 @@ Name: owners, dtype: int64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">steam</span><span class="p">[</span><span class="s2">&quot;platforms&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
@@ -13527,7 +13527,7 @@ Name: owners, dtype: int64</pre>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[8]:</div>
+    <div class="prompt output_prompt">Out[7]:</div>
 
 
 
@@ -13538,8 +13538,8 @@ windows;mac;linux     4623
 windows;mac           3439
 windows;linux          610
 mac                      3
-linux                    1
 mac;linux                1
+linux                    1
 Name: platforms, dtype: int64</pre>
 </div>
 
@@ -13551,7 +13551,7 @@ Name: platforms, dtype: int64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
@@ -13561,6 +13561,39 @@ Name: platforms, dtype: int64</pre>
 </pre></div>
 
     </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Saving image platforms_hist
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+
+<div class="output_png output_subarea ">
+<img src="data:image/png;base64,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YD03yeXdvfbyvYcnuTKzy/o+luTOJM+cK39Zkk8luSnJ+5O8pruvTJLuviXJ6UlemeTWJI9L8oxB7QUAABhuyD1Y3f2C/Ux/c5I330O9O5M8b3rtq/y9STyWHQAA2BJG/x8sAACAw5aABQAAMIiABQAAMIiABQAAMIiABQAAMIiABQAAMIiABQAAMIiABQAAMIiABQAAMIiABQAAMIiABQAAMIiABQAAMIiABQAAMIiABQAAMIiABQAAMIiABQAAMIiABQAAMIiABQAAMIiABQAAMIiABQAAMIiABQAAMIiABQAAMIiABQAAMIiABQAAMIiABQAAMIiABQAAMIiABQAAMIiABQAAMIiABQAAMIiABQAAMIiABQAAMIiABQAAMIiABQAAMIiABQAAMIiABQAAMIiABQAAMIiABQAAMIiABQAAMIiABQAAMIiABQAAMIiABQAAMIiABQAAMIiABQAAMIiABQAAMIiABQAAMIiABQAAMIiABQAAMIiABQAAMIiABQAAMIiABQAAMIiABQAAMIiABQAAMIiABQAAMIiABQAAMIiABQAAMIiABQAAMIiABQAAMIiABQAAMIiABQAAMMiQgFVVK1X1zapanV6fnCt7VlXdVFW3V9U7q+pBc2UPqqp3TGU3VdWz1ix3v3UBAAAWzcgzWGd39/bp9cgkqaqTk/xekn+eZEeSO5L8zlyd1yX51lR2RpLfneqspy4AAMBC2XaIl39Gknd19weSpKpekuQTVXVMkr9JcnqSR3f3apIPVdV/yixQnXtPdbv7tkPcbgAAgHutunvjC6laSXJykkryySS/0t0rVXVFkg9396vn5l1N8sTMAtaHu/uoubJfTPLE7n7yPdXt7qvXrP+sJGclyY4dOx77lre8ZcPbNMrq6mq2b9++2c3gENLHy+9LX92Tm7+x2a04eKc87AGb3YSF5328/PTxctO/y28R+/i00067urt3rZ0+6gzWv0ny8cwu93tGkndV1alJtifZs2bePUmOSfKdeyjLAep+j+6+KMlFSbJr167evXv3wW7HcCsrK1mk9jCePl5+F152RS647lCf8D90bjxj92Y3YeF5Hy8/fbzc9O/y20p9POQbQ3f/xdzoG6vqmUl+OslqkmPXzH5sktsyO4O1v7IcoC4AAMDCOVSPae/MLhe8PsnOvROr6uFJ7p/kL6fXtqo6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
+"
+>
+</div>
+
+</div>
+
 </div>
 </div>
 
@@ -13643,83 +13676,10 @@ Name: english, dtype: int64</pre>
     <div class="prompt"></div>
 
 
-<div class="output_subarea output_text output_error">
-<pre>
-<span class="ansi-red-intense-fg ansi-bold">---------------------------------------------------------------------------</span>
-<span class="ansi-red-intense-fg ansi-bold">FileNotFoundError</span>                         Traceback (most recent call last)
-<span class="ansi-green-intense-fg ansi-bold">&lt;ipython-input-10-2f1da9fe9f93&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-fg">      1</span> plt<span class="ansi-yellow-intense-fg ansi-bold">.</span>figure<span class="ansi-yellow-intense-fg ansi-bold">(</span>figsize <span class="ansi-yellow-intense-fg ansi-bold">=</span> <span class="ansi-yellow-intense-fg ansi-bold">(</span><span class="ansi-cyan-intense-fg ansi-bold">12</span><span class="ansi-yellow-intense-fg ansi-bold">,</span><span class="ansi-cyan-intense-fg ansi-bold">8</span><span class="ansi-yellow-intense-fg ansi-bold">)</span><span class="ansi-yellow-intense-fg ansi-bold">)</span>
-<span class="ansi-green-fg">      2</span> steam<span class="ansi-yellow-intense-fg ansi-bold">[</span><span class="ansi-blue-intense-fg ansi-bold">&#34;english&#34;</span><span class="ansi-yellow-intense-fg ansi-bold">]</span><span class="ansi-yellow-intense-fg ansi-bold">.</span>hist<span class="ansi-yellow-intense-fg ansi-bold">(</span>bins<span class="ansi-yellow-intense-fg ansi-bold">=</span><span class="ansi-cyan-intense-fg ansi-bold">5</span><span class="ansi-yellow-intense-fg ansi-bold">)</span>
-<span class="ansi-green-intense-fg ansi-bold">----&gt; 3</span><span class="ansi-yellow-intense-fg ansi-bold"> </span>save_fig<span class="ansi-yellow-intense-fg ansi-bold">(</span><span class="ansi-blue-intense-fg ansi-bold">&#34;english_hist&#34;</span><span class="ansi-yellow-intense-fg ansi-bold">)</span>
-<span class="ansi-green-fg">      4</span> plt<span class="ansi-yellow-intense-fg ansi-bold">.</span>show<span class="ansi-yellow-intense-fg ansi-bold">(</span><span class="ansi-yellow-intense-fg ansi-bold">)</span>
-
-<span class="ansi-green-intense-fg ansi-bold">&lt;ipython-input-3-7982db2e7699&gt;</span> in <span class="ansi-cyan-fg">save_fig</span><span class="ansi-blue-intense-fg ansi-bold">(fig_id, tight_layout, fig_extension, resolution)</span>
-<span class="ansi-green-fg">      4</span>     <span class="ansi-green-intense-fg ansi-bold">if</span> tight_layout<span class="ansi-yellow-intense-fg ansi-bold">:</span>
-<span class="ansi-green-fg">      5</span>         plt<span class="ansi-yellow-intense-fg ansi-bold">.</span>tight_layout<span class="ansi-yellow-intense-fg ansi-bold">(</span><span class="ansi-yellow-intense-fg ansi-bold">)</span>
-<span class="ansi-green-intense-fg ansi-bold">----&gt; 6</span><span class="ansi-yellow-intense-fg ansi-bold">     </span>plt<span class="ansi-yellow-intense-fg ansi-bold">.</span>savefig<span class="ansi-yellow-intense-fg ansi-bold">(</span>path<span class="ansi-yellow-intense-fg ansi-bold">,</span> format<span class="ansi-yellow-intense-fg ansi-bold">=</span>fig_extension<span class="ansi-yellow-intense-fg ansi-bold">,</span> dpi<span class="ansi-yellow-intense-fg ansi-bold">=</span>resolution<span class="ansi-yellow-intense-fg ansi-bold">)</span>
-
-<span class="ansi-green-intense-fg ansi-bold">c:\users\krystian wojakiewicz\appdata\local\programs\python\python37\lib\site-packages\matplotlib\pyplot.py</span> in <span class="ansi-cyan-fg">savefig</span><span class="ansi-blue-intense-fg ansi-bold">(*args, **kwargs)</span>
-<span class="ansi-green-fg">    714</span> <span class="ansi-green-intense-fg ansi-bold">def</span> savefig<span class="ansi-yellow-intense-fg ansi-bold">(</span><span class="ansi-yellow-intense-fg ansi-bold">*</span>args<span class="ansi-yellow-intense-fg ansi-bold">,</span> <span class="ansi-yellow-intense-fg ansi-bold">**</span>kwargs<span class="ansi-yellow-intense-fg ansi-bold">)</span><span class="ansi-yellow-intense-fg ansi-bold">:</span>
-<span class="ansi-green-fg">    715</span>     fig <span class="ansi-yellow-intense-fg ansi-bold">=</span> gcf<span class="ansi-yellow-intense-fg ansi-bold">(</span><span class="ansi-yellow-intense-fg ansi-bold">)</span>
-<span class="ansi-green-intense-fg ansi-bold">--&gt; 716</span><span class="ansi-yellow-intense-fg ansi-bold">     </span>res <span class="ansi-yellow-intense-fg ansi-bold">=</span> fig<span class="ansi-yellow-intense-fg ansi-bold">.</span>savefig<span class="ansi-yellow-intense-fg ansi-bold">(</span><span class="ansi-yellow-intense-fg ansi-bold">*</span>args<span class="ansi-yellow-intense-fg ansi-bold">,</span> <span class="ansi-yellow-intense-fg ansi-bold">**</span>kwargs<span class="ansi-yellow-intense-fg ansi-bold">)</span>
-<span class="ansi-green-fg">    717</span>     fig<span class="ansi-yellow-intense-fg ansi-bold">.</span>canvas<span class="ansi-yellow-intense-fg ansi-bold">.</span>draw_idle<span class="ansi-yellow-intense-fg ansi-bold">(</span><span class="ansi-yellow-intense-fg ansi-bold">)</span>   <span class="ansi-red-intense-fg ansi-bold"># need this if &#39;transparent=True&#39; to reset colors</span>
-<span class="ansi-green-fg">    718</span>     <span class="ansi-green-intense-fg ansi-bold">return</span> res
-
-<span class="ansi-green-intense-fg ansi-bold">c:\users\krystian wojakiewicz\appdata\local\programs\python\python37\lib\site-packages\matplotlib\figure.py</span> in <span class="ansi-cyan-fg">savefig</span><span class="ansi-blue-intense-fg ansi-bold">(self, fname, transparent, **kwargs)</span>
-<span class="ansi-green-fg">   2178</span>             self<span class="ansi-yellow-intense-fg ansi-bold">.</span>patch<span class="ansi-yellow-intense-fg ansi-bold">.</span>set_visible<span class="ansi-yellow-intense-fg ansi-bold">(</span>frameon<span class="ansi-yellow-intense-fg ansi-bold">)</span>
-<span class="ansi-green-fg">   2179</span> 
-<span class="ansi-green-intense-fg ansi-bold">-&gt; 2180</span><span class="ansi-yellow-intense-fg ansi-bold">         </span>self<span class="ansi-yellow-intense-fg ansi-bold">.</span>canvas<span class="ansi-yellow-intense-fg ansi-bold">.</span>print_figure<span class="ansi-yellow-intense-fg ansi-bold">(</span>fname<span class="ansi-yellow-intense-fg ansi-bold">,</span> <span class="ansi-yellow-intense-fg ansi-bold">**</span>kwargs<span class="ansi-yellow-intense-fg ansi-bold">)</span>
-<span class="ansi-green-fg">   2181</span> 
-<span class="ansi-green-fg">   2182</span>         <span class="ansi-green-intense-fg ansi-bold">if</span> frameon<span class="ansi-yellow-intense-fg ansi-bold">:</span>
-
-<span class="ansi-green-intense-fg ansi-bold">c:\users\krystian wojakiewicz\appdata\local\programs\python\python37\lib\site-packages\matplotlib\backend_bases.py</span> in <span class="ansi-cyan-fg">print_figure</span><span class="ansi-blue-intense-fg ansi-bold">(self, filename, dpi, facecolor, edgecolor, orientation, format, bbox_inches, **kwargs)</span>
-<span class="ansi-green-fg">   2080</span>                     orientation<span class="ansi-yellow-intense-fg ansi-bold">=</span>orientation<span class="ansi-yellow-intense-fg ansi-bold">,</span>
-<span class="ansi-green-fg">   2081</span>                     bbox_inches_restore<span class="ansi-yellow-intense-fg ansi-bold">=</span>_bbox_inches_restore<span class="ansi-yellow-intense-fg ansi-bold">,</span>
-<span class="ansi-green-intense-fg ansi-bold">-&gt; 2082</span><span class="ansi-yellow-intense-fg ansi-bold">                     **kwargs)
-</span><span class="ansi-green-fg">   2083</span>             <span class="ansi-green-intense-fg ansi-bold">finally</span><span class="ansi-yellow-intense-fg ansi-bold">:</span>
-<span class="ansi-green-fg">   2084</span>                 <span class="ansi-green-intense-fg ansi-bold">if</span> bbox_inches <span class="ansi-green-intense-fg ansi-bold">and</span> restore_bbox<span class="ansi-yellow-intense-fg ansi-bold">:</span>
-
-<span class="ansi-green-intense-fg ansi-bold">c:\users\krystian wojakiewicz\appdata\local\programs\python\python37\lib\site-packages\matplotlib\backends\backend_agg.py</span> in <span class="ansi-cyan-fg">print_png</span><span class="ansi-blue-intense-fg ansi-bold">(self, filename_or_obj, metadata, pil_kwargs, *args, **kwargs)</span>
-<span class="ansi-green-fg">    528</span>             renderer <span class="ansi-yellow-intense-fg ansi-bold">=</span> self<span class="ansi-yellow-intense-fg ansi-bold">.</span>get_renderer<span class="ansi-yellow-intense-fg ansi-bold">(</span><span class="ansi-yellow-intense-fg ansi-bold">)</span>
-<span class="ansi-green-fg">    529</span>             <span class="ansi-green-intense-fg ansi-bold">with</span> cbook<span class="ansi-yellow-intense-fg ansi-bold">.</span>_setattr_cm<span class="ansi-yellow-intense-fg ansi-bold">(</span>renderer<span class="ansi-yellow-intense-fg ansi-bold">,</span> dpi<span class="ansi-yellow-intense-fg ansi-bold">=</span>self<span class="ansi-yellow-intense-fg ansi-bold">.</span>figure<span class="ansi-yellow-intense-fg ansi-bold">.</span>dpi<span class="ansi-yellow-intense-fg ansi-bold">)</span><span class="ansi-yellow-intense-fg ansi-bold">,</span><span class="ansi-red-fg"> </span><span class="ansi-red-fg">\</span>
-<span class="ansi-green-intense-fg ansi-bold">--&gt; 530</span><span class="ansi-yellow-intense-fg ansi-bold">                     </span>cbook<span class="ansi-yellow-intense-fg ansi-bold">.</span>open_file_cm<span class="ansi-yellow-intense-fg ansi-bold">(</span>filename_or_obj<span class="ansi-yellow-intense-fg ansi-bold">,</span> <span class="ansi-blue-intense-fg ansi-bold">&#34;wb&#34;</span><span class="ansi-yellow-intense-fg ansi-bold">)</span> <span class="ansi-green-intense-fg ansi-bold">as</span> fh<span class="ansi-yellow-intense-fg ansi-bold">:</span>
-<span class="ansi-green-fg">    531</span>                 _png.write_png(renderer._renderer, fh,
-<span class="ansi-green-fg">    532</span>                                self.figure.dpi, metadata=metadata)
-
-<span class="ansi-green-intense-fg ansi-bold">c:\users\krystian wojakiewicz\appdata\local\programs\python\python37\lib\contextlib.py</span> in <span class="ansi-cyan-fg">__enter__</span><span class="ansi-blue-intense-fg ansi-bold">(self)</span>
-<span class="ansi-green-fg">    110</span>         <span class="ansi-green-intense-fg ansi-bold">del</span> self<span class="ansi-yellow-intense-fg ansi-bold">.</span>args<span class="ansi-yellow-intense-fg ansi-bold">,</span> self<span class="ansi-yellow-intense-fg ansi-bold">.</span>kwds<span class="ansi-yellow-intense-fg ansi-bold">,</span> self<span class="ansi-yellow-intense-fg ansi-bold">.</span>func
-<span class="ansi-green-fg">    111</span>         <span class="ansi-green-intense-fg ansi-bold">try</span><span class="ansi-yellow-intense-fg ansi-bold">:</span>
-<span class="ansi-green-intense-fg ansi-bold">--&gt; 112</span><span class="ansi-yellow-intense-fg ansi-bold">             </span><span class="ansi-green-intense-fg ansi-bold">return</span> next<span class="ansi-yellow-intense-fg ansi-bold">(</span>self<span class="ansi-yellow-intense-fg ansi-bold">.</span>gen<span class="ansi-yellow-intense-fg ansi-bold">)</span>
-<span class="ansi-green-fg">    113</span>         <span class="ansi-green-intense-fg ansi-bold">except</span> StopIteration<span class="ansi-yellow-intense-fg ansi-bold">:</span>
-<span class="ansi-green-fg">    114</span>             <span class="ansi-green-intense-fg ansi-bold">raise</span> RuntimeError<span class="ansi-yellow-intense-fg ansi-bold">(</span><span class="ansi-blue-intense-fg ansi-bold">&#34;generator didn&#39;t yield&#34;</span><span class="ansi-yellow-intense-fg ansi-bold">)</span> <span class="ansi-green-intense-fg ansi-bold">from</span> <span class="ansi-green-intense-fg ansi-bold">None</span>
-
-<span class="ansi-green-intense-fg ansi-bold">c:\users\krystian wojakiewicz\appdata\local\programs\python\python37\lib\site-packages\matplotlib\cbook\__init__.py</span> in <span class="ansi-cyan-fg">open_file_cm</span><span class="ansi-blue-intense-fg ansi-bold">(path_or_file, mode, encoding)</span>
-<span class="ansi-green-fg">    445</span> <span class="ansi-green-intense-fg ansi-bold">def</span> open_file_cm<span class="ansi-yellow-intense-fg ansi-bold">(</span>path_or_file<span class="ansi-yellow-intense-fg ansi-bold">,</span> mode<span class="ansi-yellow-intense-fg ansi-bold">=</span><span class="ansi-blue-intense-fg ansi-bold">&#34;r&#34;</span><span class="ansi-yellow-intense-fg ansi-bold">,</span> encoding<span class="ansi-yellow-intense-fg ansi-bold">=</span><span class="ansi-green-intense-fg ansi-bold">None</span><span class="ansi-yellow-intense-fg ansi-bold">)</span><span class="ansi-yellow-intense-fg ansi-bold">:</span>
-<span class="ansi-green-fg">    446</span>     <span class="ansi-blue-intense-fg ansi-bold">r&#34;&#34;&#34;Pass through file objects and context-manage `.PathLike`\s.&#34;&#34;&#34;</span>
-<span class="ansi-green-intense-fg ansi-bold">--&gt; 447</span><span class="ansi-yellow-intense-fg ansi-bold">     </span>fh<span class="ansi-yellow-intense-fg ansi-bold">,</span> opened <span class="ansi-yellow-intense-fg ansi-bold">=</span> to_filehandle<span class="ansi-yellow-intense-fg ansi-bold">(</span>path_or_file<span class="ansi-yellow-intense-fg ansi-bold">,</span> mode<span class="ansi-yellow-intense-fg ansi-bold">,</span> <span class="ansi-green-intense-fg ansi-bold">True</span><span class="ansi-yellow-intense-fg ansi-bold">,</span> encoding<span class="ansi-yellow-intense-fg ansi-bold">)</span>
-<span class="ansi-green-fg">    448</span>     <span class="ansi-green-intense-fg ansi-bold">if</span> opened<span class="ansi-yellow-intense-fg ansi-bold">:</span>
-<span class="ansi-green-fg">    449</span>         <span class="ansi-green-intense-fg ansi-bold">with</span> fh<span class="ansi-yellow-intense-fg ansi-bold">:</span>
-
-<span class="ansi-green-intense-fg ansi-bold">c:\users\krystian wojakiewicz\appdata\local\programs\python\python37\lib\site-packages\matplotlib\cbook\__init__.py</span> in <span class="ansi-cyan-fg">to_filehandle</span><span class="ansi-blue-intense-fg ansi-bold">(fname, flag, return_opened, encoding)</span>
-<span class="ansi-green-fg">    430</span>             fh <span class="ansi-yellow-intense-fg ansi-bold">=</span> bz2<span class="ansi-yellow-intense-fg ansi-bold">.</span>BZ2File<span class="ansi-yellow-intense-fg ansi-bold">(</span>fname<span class="ansi-yellow-intense-fg ansi-bold">,</span> flag<span class="ansi-yellow-intense-fg ansi-bold">)</span>
-<span class="ansi-green-fg">    431</span>         <span class="ansi-green-intense-fg ansi-bold">else</span><span class="ansi-yellow-intense-fg ansi-bold">:</span>
-<span class="ansi-green-intense-fg ansi-bold">--&gt; 432</span><span class="ansi-yellow-intense-fg ansi-bold">             </span>fh <span class="ansi-yellow-intense-fg ansi-bold">=</span> open<span class="ansi-yellow-intense-fg ansi-bold">(</span>fname<span class="ansi-yellow-intense-fg ansi-bold">,</span> flag<span class="ansi-yellow-intense-fg ansi-bold">,</span> encoding<span class="ansi-yellow-intense-fg ansi-bold">=</span>encoding<span class="ansi-yellow-intense-fg ansi-bold">)</span>
-<span class="ansi-green-fg">    433</span>         opened <span class="ansi-yellow-intense-fg ansi-bold">=</span> <span class="ansi-green-intense-fg ansi-bold">True</span>
-<span class="ansi-green-fg">    434</span>     <span class="ansi-green-intense-fg ansi-bold">elif</span> hasattr<span class="ansi-yellow-intense-fg ansi-bold">(</span>fname<span class="ansi-yellow-intense-fg ansi-bold">,</span> <span class="ansi-blue-intense-fg ansi-bold">&#39;seek&#39;</span><span class="ansi-yellow-intense-fg ansi-bold">)</span><span class="ansi-yellow-intense-fg ansi-bold">:</span>
-
-<span class="ansi-red-intense-fg ansi-bold">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;.\\pictures\\preparing_dataset\\english_hist.png&#39;</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
 
 
 <div class="output_png output_subarea ">
-<img src="data:image/png;base64,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P6uB9fExxvlTY7+U5PljjBefae4Y4xNr/vsHkhxIkqWlpe9///vfP/f31GVlZSW7du3a6mWwjdlDzMseYl72EPP60leO5f6HtnoVbGff/aRzFu516AUveMEnxhj71j7f9Q7Wf0jy51k93e9lST5cVc9OsivJsTXHHktyQZK/PcNY1pn7KGOMg0kOJsm+ffvG/v37v9Xvo93y8nIWaT1sP/YQ87KHmJc9xLxuuuVDeevdZ/vEKR7LDl25c9u8DrXs9DHG/5p6+DtV9RNJfiTJSpLdaw7fneR4Vt/BOt1Y1pkLAACwcM7WZdpHVk8XPJxk78knq+ppSc5N8tnJbUdVXT41b+9kTtaZCwAAsHDmDqyqenJVvaiqzquqHVV1dZJ/leS/JbklyYur6gerameSNyS5dYxxfIxxIsmtSd5QVTur6nlJfizJeyZf+rRz510zAADA2dBxiuATk7wpyRVZ/VzVPUleMsb4TJJU1b/NaixdlOSjSX56au4vJLk5yZeSfDnJz48xDifJGOPwOnMBAAAWytyBNcZ4IMkPnGH8vUnee5qxryR5ybcyFwAAYNGcrc9gAQAAPO4ILAAAgCYCCwAAoInAAgAAaCKwAAAAmggsAACAJgILAACgicACAABoIrAAAACaCCwAAIAmAgsAAKCJwAIAAGgisAAAAJoILAAAgCYCCwAAoInAAgAAaCKwAAAAmggsAACAJgILAACgicACAABoIrAAAACaCCwAAIAmAgsAAKCJwAIAAGgisAAAAJoILAAAgCYCCwAAoInAAgAAaCKwAAAAmggsAACAJgILAACgicACAABoIrAAAACaCCwAAIAmAgsAAKCJwAIAAGgisAAAAJoILAAAgCYCCwAAoInAAgAAaCKwAAAAmggsAACAJgILAACgicACAABoIrAAAACaCCwAAIAmAgsAAKCJwAIAAGgisAAAAJoILAAAgCYCCwAAoInAAgAAaCKwAAAAmggsAACAJgILAACgicACAABoIrAAAACaCCwAAIAmAgsAAKCJwAIAAGgisAAAAJoILAAAgCYCCwAAoInAAgAAaCKwAAAAmggsAACAJgILAACgicACAABoIrAAAACaCCwAAIAmAgsAAKCJwAIAAGgisAAAAJoILAAAgCYCCwAAoInAAgAAaCKwAAAAmggsAACAJgILAACgyY6tXsBj3d2fP5Zr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
+<img src="data:image/png;base64,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P6uB9fExxvlTY7+U5PljjBefae4Y4xNr/vsHkhxIkqWlpe9///vfP/f31GVlZSW7du3a6mWwjdlDzMseYl72EPP60leO5f6HtnoVbGff/aRzFu516AUveMEnxhj71j7f9Q7Wf0jy51k93e9lST5cVc9OsivJsTXHHktyQZK/PcNY1pn7KGOMg0kOJsm+ffvG/v37v9Xvo93y8nIWaT1sP/YQ87KHmJc9xLxuuuVDeevdZ/vEKR7LDl25c9u8DrXs9DHG/5p6+DtV9RNJfiTJSpLdaw7fneR4Vt/BOt1Y1pkLAACwcM7WZdpHVk8XPJxk78knq+ppSc5N8tnJbUdVXT41b+9kTtaZCwAAsHDmDqyqenJVvaiqzquqHVV1dZJ/leS/JbklyYur6gerameSNyS5dYxxfIxxIsmtSd5QVTur6nlJfizJeyZf+rRz510zAADA2dBxiuATk7wpyRVZ/VzVPUleMsb4TJJU1b/NaixdlOSjSX56au4vJLk5yZeSfDnJz48xDifJGOPwOnMBAAAWytyBNcZ4IMkPnGH8vUnee5qxryR5ybcyFwAAYNGcrc9gAQAAPO4ILAAAgCYCCwAAoInAAgAAaCKwAAAAmggsAACAJgILAACgicACAABoIrAAAACaCCwAAIAmAgsAAKCJwAIAAGgisAAAAJoILAAAgCYCCwAAoInAAgAAaCKwAAAAmggsAACAJgILAACgicACAABoIrAAAACaCCwAAIAmAgsAAKCJwAIAAGgisAAAAJoILAAAgCYCCwAAoInAAgAAaCKwAAAAmggsAACAJgILAACgicACAABoIrAAAACaCCwAAIAmAgsAAKCJwAIAAGgisAAAAJoILAAAgCYCCwAAoInAAgAAaCKwAAAAmggsAACAJgILAACgicACAABoIrAAAACaCCwAAIAmAgsAAKCJwAIAAGgisAAAAJoILAAAgCYCCwAAoInAAgAAaCKwAAAAmggsAACAJgILAACgicACAABoIrAAAACaCCwAAIAmAgsAAKCJwAIAAGgisAAAAJoILAAAgCYCCwAAoInAAgAAaCKwAAAAmggsAACAJgILAACgicACAABoIrAAAACaCCwAAIAmAgsAAKCJwAIAAGgisAAAAJoILAAAgCYCCwAAoInAAgAAaCKwAAAAmggsAACAJgILAACgyY6tXsBj3d2fP5ZrrvvIVi+DbezQlTu3egkAAMzIO1gAAABNBBYAAEATgQUAANBEYAEAADQRWAAAAE0EFgAAQJOFDqyqekpV3VZVJ6rqSFW9fKvXBAAAcDqL/new3pbk60mWkjw7yUeq6q4xxuGtXRYAAMDft7DvYFXVziRXJblhjLEyxvjjJL+f5Ke2dmUAAACnVmOMrV7DKVXVP03y8THG+VPP/VKS548xXrzm2ANJDkwePiPJZzZtoeu7OMmDW70ItjV7iHnZQ8zLHmJe9hDzWsQ9dOkY49vWPrnIpwjuSnJszXPHklyw9sAxxsEkBzdjURtVVXeOMfZt9TrYvuwh5mUPMS97iHnZQ8xrO+2hhT1FMMlKkt1rntud5PgWrAUAAGBdixxYn02yo6oun3pubxIXuAAAABbSwgbWGONEkluTvKGqdlbV85L8WJL3bO3KNmwhT11kW7GHmJc9xLzsIeZlDzGvbbOHFvYiF8nq38FKcnOSH0ry5STXjTHeu7WrAgAAOLWFDiwAAIDtZGFPEQQAANhuBBYAAEATgTWnqnpKVd1WVSeq6khVvfw0x1VV/VpVfXly+/Wqqs1eL4tnA3votVX1qao6XlWfq6rXbvZaWVyz7qOp4/9BVd1TVf93s9bIYtvIHqqqf1ZVf1RVK1V1f1X94maulcW0gX/Pzq2q35rsna9U1Yer6js2e70slqq6tqrurKpHqurQOsf++6q6r6qOVdXNVXXuJi1zJgJrfm9L8vUkS0muTvL2qtpziuMOJHlJVi81/0+S/OskP7dZi2ShzbqHKskrklyY5Mok11bVyzZtlSy6WffRSa9N8qXNWBjbxkx7qKouTnJ7knckuSjJ9yT575u4ThbXrK9Dv5jkX2T156FLkvx1kps2a5EsrC8keVNWL3B3WlX1oiTXJXlhksuSPC3Jfzrbi9sIF7mYQ1XtTHI0yTPHGJ+dPPeeJJ8fY1y35tiPJzk0xjg4efwzSV41xnjuJi+bBbKRPXSKub+R1f8P/7uzv1IW2Ub3UVV9d5L/kuTVSd45xvjOzVwvi2eD/579apLvGmP81OavlEW1wT309iTHxxi/PHn8o0n+8xjjGZu8bBZQVb0pyXeOMa45zfh7k/zFGONXJo9fmOSWMca3b94qz8w7WPP53iR/e/KFZOKuJKf6bc2eydh6x/H4spE99E2T00t/MP7wNqs2uo9uSvIrSR462wtj29jIHnpukq9U1cer6kuT07ueuimrZJFtZA+9K8nzquqSqvqHWX23679uwhp5bDjVz9RLVXXRFq3n7xFY89mV5Nia544luWCGY48l2eVzWI97G9lD027M6v9/f/ssrIntZ+Z9VFU/nmTHGOO2zVgY28ZGXou+M8m/yeppXk9N8rkk7zurq2M72Mge+mySv0zy+SRfTfJ9Sd5wVlfHY8mpfqZO1v/ZadMIrPmsJNm95rndSY7PcOzuJCvDOZqPdxvZQ0lWPwSa1c9i/egY45GzuDa2j5n20eQUnl9P4rRS1trIa9FDSW4bY/zJGOPhrH724V9W1ZPO8hpZbBvZQ29Pcl5WP8O3M8mt8Q4WszvVz9TJGX522mwCaz6fTbKjqi6fem5vTn3a1uHJ2HrH8fiykT2UqnplJh/sHGO4+hsnzbqPLs/qB4L/Z1Xdl9Ufav7R5EpMl23COllcG3kt+mSS6V8OnrzvjIzHt43sob1Z/Vz6Vya/KLwpyT+fXEAF1nOqn6nvH2N8eYvW8/cIrDmMMU5k9QeUN1TVzqp6XpIfS/KeUxz+7iSvrqrvqKpLkrwmyaFNWywLaSN7qKquTvKrSX5ojPF/NnelLLIN7KNPJfmuJM+e3H42yf2T+3+1eStm0Wzw37PfTvLjVfXsqnpikhuS/PEY4683b8Usmg3uoT9J8oqqetJkD/1Cki+MMR7cvBWzaKpqR1Wdl+ScJOdU1XlVteMUh747yc9U1T+uqguTXJ8F+5laYM3vF5Kcn9XLHb8vyc+PMQ5X1Q9W1crUce9I8uEkd2f1h5yPTJ6DWffQm7J6OsWfTP72zEpV/dYWrJfFtO4+GmN8Y4xx38lbkq8k+bvJ47/duqWzIGZ6LRpj/I+sXiTlI5NjvyfJGf/uGo8bs/579ktJHk7yv5M8kORHkvz4Zi+WhXN9Vk9Bvi7JT07uX19VT538zPPUJBlj3J7V093vSHJkcnv91iz51FymHQAAoIl3sAAAAJoILAAAgCYCCwAAoInAAgAAaCKwAAAAmggsAACAJgILAACgicACAABo8v8ArLVfd9dQSrcAAAAASUVORK5CYII=
 "
 >
 </div>
@@ -13762,7 +13722,7 @@ Name: english, dtype: int64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">steam_cp</span> <span class="o">=</span> <span class="n">steam</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
@@ -13784,7 +13744,7 @@ Name: english, dtype: int64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">encode_series</span><span class="p">(</span><span class="n">series</span><span class="p">):</span>
@@ -13816,7 +13776,7 @@ Name: english, dtype: int64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">enc_dev</span><span class="p">,</span> <span class="n">dev_dict</span> <span class="o">=</span> <span class="n">encode_series</span><span class="p">(</span><span class="s1">&#39;developer&#39;</span><span class="p">)</span>
@@ -13839,7 +13799,7 @@ Name: english, dtype: int64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">save_encoded_dict_to_file</span><span class="p">(</span><span class="n">dest_filepath</span><span class="p">,</span> <span class="n">data_to_write</span><span class="p">):</span>
@@ -13863,7 +13823,7 @@ Name: english, dtype: int64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[16]:</div>
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">extract_values_in_columns</span><span class="p">(</span><span class="n">column</span><span class="p">):</span>
@@ -13896,7 +13856,7 @@ Name: english, dtype: int64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[17]:</div>
+<div class="prompt input_prompt">In&nbsp;[16]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">genres_set</span> <span class="o">=</span> <span class="n">extract_values_in_columns</span><span class="p">(</span><span class="s2">&quot;genres&quot;</span><span class="p">)</span>
@@ -13918,7 +13878,7 @@ Name: english, dtype: int64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[18]:</div>
+<div class="prompt input_prompt">In&nbsp;[17]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">genres_set</span>
@@ -13934,7 +13894,7 @@ Name: english, dtype: int64</pre>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[18]:</div>
+    <div class="prompt output_prompt">Out[17]:</div>
 
 
 
@@ -13987,7 +13947,7 @@ Name: english, dtype: int64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[20]:</div>
+<div class="prompt input_prompt">In&nbsp;[18]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">cats_set</span>
@@ -14003,7 +13963,7 @@ Name: english, dtype: int64</pre>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[20]:</div>
+    <div class="prompt output_prompt">Out[18]:</div>
 
 
 
@@ -14056,7 +14016,7 @@ Name: english, dtype: int64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[21]:</div>
+<div class="prompt input_prompt">In&nbsp;[19]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">steam_cp</span><span class="p">[</span><span class="s2">&quot;categories&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">get_dummies</span><span class="p">(</span><span class="n">sep</span><span class="o">=</span><span class="s1">&#39;;&#39;</span><span class="p">)</span>
@@ -14072,7 +14032,7 @@ Name: english, dtype: int64</pre>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[21]:</div>
+    <div class="prompt output_prompt">Out[19]:</div>
 
 
 
@@ -14405,7 +14365,7 @@ Name: english, dtype: int64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[22]:</div>
+<div class="prompt input_prompt">In&nbsp;[20]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">pos</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">steam_cp</span><span class="p">[</span><span class="s1">&#39;positive_ratings&#39;</span><span class="p">])</span>
@@ -14432,7 +14392,7 @@ Name: english, dtype: int64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[24]:</div>
+<div class="prompt input_prompt">In&nbsp;[21]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">dates</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">steam_cp</span><span class="p">[</span><span class="s1">&#39;release_date&#39;</span><span class="p">])</span>
@@ -14462,7 +14422,7 @@ Name: english, dtype: int64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[30]:</div>
+<div class="prompt input_prompt">In&nbsp;[22]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">produce_encoded_dataframe</span><span class="p">(</span><span class="n">relevant_attributes</span><span class="p">,</span> <span class="n">attributes_to_concat</span><span class="p">,</span> <span class="n">raw_data</span><span class="p">,</span> <span class="n">value_sep</span><span class="o">=</span><span class="s1">&#39;;&#39;</span><span class="p">):</span>
@@ -14482,7 +14442,7 @@ Name: english, dtype: int64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[39]:</div>
+<div class="prompt input_prompt">In&nbsp;[23]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">relevant_attributes</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Month&#39;</span><span class="p">:</span> <span class="n">months</span><span class="p">,</span> <span class="s1">&#39;Year&#39;</span><span class="p">:</span> <span class="n">years</span><span class="p">,</span>
@@ -14500,7 +14460,7 @@ Name: english, dtype: int64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[59]:</div>
+<div class="prompt input_prompt">In&nbsp;[24]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">enc_data</span> <span class="o">=</span> <span class="n">produce_encoded_dataframe</span><span class="p">(</span><span class="n">relevant_attributes</span><span class="p">,</span> <span class="n">attributes_to_concat</span><span class="p">,</span> <span class="n">steam_cp</span><span class="p">)</span>
@@ -14517,7 +14477,7 @@ Name: english, dtype: int64</pre>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[59]:</div>
+    <div class="prompt output_prompt">Out[24]:</div>
 
 
 
@@ -14778,10 +14738,10 @@ Name: english, dtype: int64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[60]:</div>
+<div class="prompt input_prompt">In&nbsp;[25]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">corr_matrix</span> <span class="o">=</span> <span class="n">enc_steam</span><span class="o">.</span><span class="n">corr</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">corr_matrix</span> <span class="o">=</span> <span class="n">enc_data</span><span class="o">.</span><span class="n">corr</span><span class="p">()</span>
 <span class="n">corr_matrix</span>
 </pre></div>
 
@@ -14795,7 +14755,7 @@ Name: english, dtype: int64</pre>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[60]:</div>
+    <div class="prompt output_prompt">Out[25]:</div>
 
 
 
@@ -14818,22 +14778,22 @@ Name: english, dtype: int64</pre>
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>Month</th>
+      <th>Accounting</th>
+      <th>Action</th>
+      <th>Adventure</th>
+      <th>Animation &amp; Modeling</th>
+      <th>Audio Production</th>
+      <th>Casual</th>
+      <th>Design &amp; Illustration</th>
+      <th>Documentary</th>
+      <th>Early Access</th>
+      <th>Education</th>
+      <th>...</th>
       <th>Year</th>
       <th>English</th>
       <th>Developer</th>
       <th>Publisher</th>
-      <th>linux</th>
-      <th>mac</th>
-      <th>windows</th>
       <th>Required_Age</th>
-      <th>Captions available</th>
-      <th>...</th>
-      <th>Tutorial</th>
-      <th>Utilities</th>
-      <th>Video Production</th>
-      <th>Violent</th>
-      <th>Web Publishing</th>
       <th>Achievements</th>
       <th>Average_Playtime</th>
       <th>Median_Playtime</th>
@@ -14843,124 +14803,124 @@ Name: english, dtype: int64</pre>
   </thead>
   <tbody>
     <tr>
-      <th>Month</th>
+      <th>Accounting</th>
       <td>1.000000</td>
-      <td>-0.156352</td>
-      <td>0.018501</td>
-      <td>-0.026496</td>
-      <td>-0.025305</td>
-      <td>0.001113</td>
-      <td>0.008372</td>
-      <td>0.005324</td>
-      <td>0.000078</td>
-      <td>0.007726</td>
+      <td>-0.013187</td>
+      <td>-0.006285</td>
+      <td>0.137206</td>
+      <td>0.227089</td>
+      <td>0.008895</td>
+      <td>0.174531</td>
+      <td>0.408211</td>
+      <td>0.002749</td>
+      <td>0.228259</td>
       <td>...</td>
-      <td>0.007807</td>
-      <td>-0.002784</td>
-      <td>0.000255</td>
-      <td>-0.004256</td>
-      <td>0.006127</td>
-      <td>-0.012066</td>
-      <td>0.003627</td>
-      <td>0.003098</td>
-      <td>-0.000520</td>
-      <td>0.003422</td>
+      <td>0.005765</td>
+      <td>-0.016170</td>
+      <td>0.006588</td>
+      <td>0.007705</td>
+      <td>-0.002196</td>
+      <td>-0.001896</td>
+      <td>-0.001221</td>
+      <td>-0.000924</td>
+      <td>-0.009209</td>
+      <td>0.002168</td>
     </tr>
     <tr>
-      <th>Year</th>
-      <td>-0.156352</td>
+      <th>Action</th>
+      <td>-0.013187</td>
       <td>1.000000</td>
-      <td>-0.086886</td>
-      <td>0.683466</td>
-      <td>0.621191</td>
-      <td>-0.082492</td>
-      <td>-0.088161</td>
-      <td>0.001878</td>
-      <td>-0.078865</td>
-      <td>-0.029900</td>
+      <td>0.017816</td>
+      <td>-0.047915</td>
+      <td>-0.029004</td>
+      <td>-0.167298</td>
+      <td>-0.050290</td>
+      <td>-0.005383</td>
+      <td>0.099131</td>
+      <td>-0.038478</td>
       <td>...</td>
-      <td>0.004232</td>
-      <td>0.005910</td>
-      <td>0.000490</td>
-      <td>0.054826</td>
-      <td>-0.006897</td>
-      <td>0.034243</td>
-      <td>-0.052997</td>
-      <td>-0.034508</td>
-      <td>-0.007915</td>
-      <td>0.392090</td>
+      <td>-0.005205</td>
+      <td>0.075273</td>
+      <td>0.000089</td>
+      <td>0.010917</td>
+      <td>0.055380</td>
+      <td>0.016220</td>
+      <td>-0.002806</td>
+      <td>-0.010399</td>
+      <td>-0.017347</td>
+      <td>-0.022248</td>
     </tr>
     <tr>
-      <th>English</th>
-      <td>0.018501</td>
-      <td>-0.086886</td>
+      <th>Adventure</th>
+      <td>-0.006285</td>
+      <td>0.017816</td>
       <td>1.000000</td>
-      <td>-0.119559</td>
-      <td>-0.124342</td>
-      <td>0.055533</td>
-      <td>0.061267</td>
-      <td>-0.001885</td>
-      <td>0.002860</td>
-      <td>0.017883</td>
+      <td>-0.040086</td>
+      <td>-0.025123</td>
+      <td>-0.034569</td>
+      <td>-0.042209</td>
+      <td>-0.004663</td>
+      <td>-0.021227</td>
+      <td>-0.031566</td>
       <td>...</td>
-      <td>0.000843</td>
-      <td>0.002800</td>
-      <td>-0.002050</td>
-      <td>0.007674</td>
-      <td>-0.003982</td>
-      <td>0.014121</td>
-      <td>0.000338</td>
-      <td>-0.003416</td>
-      <td>-0.017604</td>
-      <td>-0.035323</td>
+      <td>0.062158</td>
+      <td>-0.025100</td>
+      <td>0.017479</td>
+      <td>-0.009586</td>
+      <td>0.017184</td>
+      <td>-0.029684</td>
+      <td>0.000778</td>
+      <td>0.003395</td>
+      <td>-0.002379</td>
+      <td>0.011626</td>
     </tr>
     <tr>
-      <th>Developer</th>
-      <td>-0.026496</td>
-      <td>0.683466</td>
-      <td>-0.119559</td>
+      <th>Animation &amp; Modeling</th>
+      <td>0.137206</td>
+      <td>-0.047915</td>
+      <td>-0.040086</td>
       <td>1.000000</td>
-      <td>0.898659</td>
-      <td>-0.175826</td>
-      <td>-0.166639</td>
-      <td>0.001957</td>
-      <td>-0.081207</td>
-      <td>-0.084384</td>
+      <td>0.144767</td>
+      <td>-0.030788</td>
+      <td>0.650291</td>
+      <td>-0.000329</td>
+      <td>0.027193</td>
+      <td>0.392457</td>
       <td>...</td>
-      <td>0.001292</td>
-      <td>0.013793</td>
-      <td>0.006374</td>
-      <td>0.050410</td>
-      <td>-0.000749</td>
-      <td>0.025707</td>
-      <td>-0.064034</td>
-      <td>-0.045295</td>
-      <td>-0.032305</td>
-      <td>0.385578</td>
+      <td>0.000841</td>
+      <td>0.002471</td>
+      <td>0.004407</td>
+      <td>0.005077</td>
+      <td>-0.007980</td>
+      <td>-0.006617</td>
+      <td>-0.001826</td>
+      <td>-0.001599</td>
+      <td>0.005604</td>
+      <td>0.004003</td>
     </tr>
     <tr>
-      <th>Publisher</th>
-      <td>-0.025305</td>
-      <td>0.621191</td>
-      <td>-0.124342</td>
-      <td>0.898659</td>
+      <th>Audio Production</th>
+      <td>0.227089</td>
+      <td>-0.029004</td>
+      <td>-0.025123</td>
+      <td>0.144767</td>
       <td>1.000000</td>
-      <td>-0.160122</td>
-      <td>-0.152857</td>
-      <td>0.000264</td>
-      <td>-0.077613</td>
-      <td>-0.074229</td>
+      <td>-0.016159</td>
+      <td>0.117849</td>
+      <td>-0.000199</td>
+      <td>0.010271</td>
+      <td>0.128783</td>
       <td>...</td>
-      <td>0.001621</td>
-      <td>0.018617</td>
-      <td>0.010302</td>
-      <td>0.048478</td>
-      <td>-0.001594</td>
-      <td>0.023436</td>
-      <td>-0.059452</td>
-      <td>-0.042361</td>
-      <td>-0.032769</td>
-      <td>0.362980</td>
+      <td>0.003955</td>
+      <td>-0.003756</td>
+      <td>-0.001081</td>
+      <td>0.002633</td>
+      <td>-0.004830</td>
+      <td>-0.003987</td>
+      <td>-0.002645</td>
+      <td>-0.002001</td>
+      <td>-0.012715</td>
+      <td>0.008701</td>
     </tr>
     <tr>
       <th>...</th>
@@ -14988,22 +14948,22 @@ Name: english, dtype: int64</pre>
     </tr>
     <tr>
       <th>Achievements</th>
-      <td>-0.012066</td>
+      <td>-0.001896</td>
+      <td>0.016220</td>
+      <td>-0.029684</td>
+      <td>-0.006617</td>
+      <td>-0.003987</td>
+      <td>0.076451</td>
+      <td>-0.006906</td>
+      <td>-0.000763</td>
+      <td>-0.030824</td>
+      <td>-0.005419</td>
+      <td>...</td>
       <td>0.034243</td>
       <td>0.014121</td>
       <td>0.025707</td>
       <td>0.023436</td>
-      <td>-0.009535</td>
-      <td>-0.023553</td>
-      <td>0.001220</td>
       <td>-0.005459</td>
-      <td>-0.007753</td>
-      <td>...</td>
-      <td>-0.000763</td>
-      <td>-0.008898</td>
-      <td>-0.004558</td>
-      <td>0.003008</td>
-      <td>-0.003923</td>
       <td>1.000000</td>
       <td>0.014175</td>
       <td>0.009957</td>
@@ -15012,22 +14972,22 @@ Name: english, dtype: int64</pre>
     </tr>
     <tr>
       <th>Average_Playtime</th>
-      <td>0.003627</td>
+      <td>-0.001221</td>
+      <td>-0.002806</td>
+      <td>0.000778</td>
+      <td>-0.001826</td>
+      <td>-0.002645</td>
+      <td>-0.027567</td>
+      <td>-0.001168</td>
+      <td>-0.000498</td>
+      <td>-0.013122</td>
+      <td>-0.002541</td>
+      <td>...</td>
       <td>-0.052997</td>
       <td>0.000338</td>
       <td>-0.064034</td>
       <td>-0.059452</td>
-      <td>0.031488</td>
-      <td>0.027909</td>
-      <td>0.001114</td>
       <td>0.034423</td>
-      <td>0.022218</td>
-      <td>...</td>
-      <td>-0.000498</td>
-      <td>-0.001501</td>
-      <td>-0.002520</td>
-      <td>-0.009975</td>
-      <td>-0.000239</td>
       <td>0.014175</td>
       <td>1.000000</td>
       <td>0.914900</td>
@@ -15036,22 +14996,22 @@ Name: english, dtype: int64</pre>
     </tr>
     <tr>
       <th>Median_Playtime</th>
-      <td>0.003098</td>
+      <td>-0.000924</td>
+      <td>-0.010399</td>
+      <td>0.003395</td>
+      <td>-0.001599</td>
+      <td>-0.002001</td>
+      <td>-0.016380</td>
+      <td>-0.001078</td>
+      <td>-0.000377</td>
+      <td>-0.009670</td>
+      <td>-0.001836</td>
+      <td>...</td>
       <td>-0.034508</td>
       <td>-0.003416</td>
       <td>-0.045295</td>
       <td>-0.042361</td>
-      <td>0.021210</td>
-      <td>0.019626</td>
-      <td>0.000843</td>
       <td>0.014748</td>
-      <td>0.021788</td>
-      <td>...</td>
-      <td>-0.000377</td>
-      <td>0.000037</td>
-      <td>-0.001859</td>
-      <td>-0.007377</td>
-      <td>-0.000105</td>
       <td>0.009957</td>
       <td>0.914900</td>
       <td>1.000000</td>
@@ -15060,22 +15020,22 @@ Name: english, dtype: int64</pre>
     </tr>
     <tr>
       <th>Rating</th>
-      <td>-0.000520</td>
+      <td>-0.009209</td>
+      <td>-0.017347</td>
+      <td>-0.002379</td>
+      <td>0.005604</td>
+      <td>-0.012715</td>
+      <td>-0.012720</td>
+      <td>0.009429</td>
+      <td>-0.005580</td>
+      <td>-0.017911</td>
+      <td>0.003350</td>
+      <td>...</td>
       <td>-0.007915</td>
       <td>-0.017604</td>
       <td>-0.032305</td>
       <td>-0.032769</td>
-      <td>0.116379</td>
-      <td>0.122155</td>
-      <td>-0.004738</td>
       <td>0.010169</td>
-      <td>0.029928</td>
-      <td>...</td>
-      <td>-0.005580</td>
-      <td>-0.008140</td>
-      <td>-0.009889</td>
-      <td>-0.063875</td>
-      <td>0.004982</td>
       <td>-0.022506</td>
       <td>0.020349</td>
       <td>0.013172</td>
@@ -15084,22 +15044,22 @@ Name: english, dtype: int64</pre>
     </tr>
     <tr>
       <th>Owners</th>
-      <td>0.003422</td>
+      <td>0.002168</td>
+      <td>-0.022248</td>
+      <td>0.011626</td>
+      <td>0.004003</td>
+      <td>0.008701</td>
+      <td>0.117130</td>
+      <td>0.003155</td>
+      <td>0.003531</td>
+      <td>0.099647</td>
+      <td>0.006327</td>
+      <td>...</td>
       <td>0.392090</td>
       <td>-0.035323</td>
       <td>0.385578</td>
       <td>0.362980</td>
-      <td>-0.105427</td>
-      <td>-0.108508</td>
-      <td>-0.004346</td>
       <td>-0.099558</td>
-      <td>-0.032135</td>
-      <td>...</td>
-      <td>0.003531</td>
-      <td>-0.002010</td>
-      <td>0.000736</td>
-      <td>0.042492</td>
-      <td>-0.012822</td>
       <td>0.001132</td>
       <td>-0.099681</td>
       <td>-0.057879</td>
@@ -15128,7 +15088,7 @@ Name: english, dtype: int64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[61]:</div>
+<div class="prompt input_prompt">In&nbsp;[26]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">corr_matrix</span><span class="p">[</span><span class="s2">&quot;Rating&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
@@ -15144,7 +15104,7 @@ Name: english, dtype: int64</pre>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[61]:</div>
+    <div class="prompt output_prompt">Out[26]:</div>
 
 
 
@@ -15172,7 +15132,7 @@ Name: Rating, Length: 72, dtype: float64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[62]:</div>
+<div class="prompt input_prompt">In&nbsp;[27]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">corr_matrix</span><span class="p">[</span><span class="s2">&quot;Owners&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
@@ -15188,7 +15148,7 @@ Name: Rating, Length: 72, dtype: float64</pre>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[62]:</div>
+    <div class="prompt output_prompt">Out[27]:</div>
 
 
 
@@ -15225,10 +15185,10 @@ Great, DataFrame prepared in that way is ready to be proccesed with the machine 
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[29]:</div>
+<div class="prompt input_prompt">In&nbsp;[28]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">enc_steam</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;../data/enc_steam.csv&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">enc_data</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;../data/enc_steam.csv&#39;</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -15236,18 +15196,13 @@ Great, DataFrame prepared in that way is ready to be proccesed with the machine 
 </div>
 
 </div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Here's what the first phase of our project looks like. The processes and tests performed in it was necessary to create valid data which now are devoid of unnecessary and repetitive values. Data frame prepared in this way is able to be used in machine learning. In the next phase, we will try to find a model that will have the greatest learning predispositions and then we will begin to teach our network.</p>
 
-    </div>
 </div>
 </div>
-
 </div>
     </div>
   </div>
