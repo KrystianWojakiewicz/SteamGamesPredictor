@@ -1,8 +1,6 @@
 import os
 import matplotlib.pyplot as plt
 
-SCRIPT_DIR = os.path.dirname(os.path.realpath(__file__))
-
 
 def save_fig(fig, dest_folder, fig_id, tight_layout=True, fig_extension='png', resolution=300):
     print('Saving image...')

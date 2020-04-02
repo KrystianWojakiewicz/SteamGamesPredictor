@@ -5,6 +5,8 @@ from src.data_shuffle.plotting_utilities import *
 from src.data_shuffle.bi_dict import BiDict
 from src.data_shuffle.excel_parser import load_csv
 from src.data_shuffle.common_constants import Paths
+import pprint as pp
+import json
 
 
 def encode_attribute_from_column(dataframe_column):
@@ -17,8 +19,12 @@ def encode_attribute_from_column(dataframe_column):
     return encoded_column, id_attribute_bi_dict
 
 
-# ## TODO
-# funkcja zapisująca słownik do pliku wraz z jej opisem
+def save_encoded_dict_to_file(dest_filepath, data_to_write):
+    with open(dest_filepath, 'w') as f:
+        out = json.dumps(data_to_write)
+        f.write(pp.pformat(out))
+
+
 def extract_values_from_columns(dataframe_column, value_sep=';'):
     unique_attribute_values = set()
     for attribute in dataframe_column:

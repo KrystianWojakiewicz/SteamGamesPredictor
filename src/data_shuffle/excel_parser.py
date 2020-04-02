@@ -4,7 +4,7 @@ from src.data_shuffle.common_constants import Paths
 
 
 def load_csv(csv_path):
-    return pd.read_csv(csv_path, header=0, dtype=str, low_memory=False)
+    return pd.read_csv(csv_path, header=0)
 
 
 def write_csv_to_file(csv_path, out_filename):
