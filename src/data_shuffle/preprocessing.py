@@ -79,7 +79,8 @@ def main():
                            'Achievements': steam_cp['achievements'], 'Average_Playtime': steam_cp['average_playtime'],
                            'Median_Playtime': steam_cp['median_playtime'], 'Rating': ratings, 'Owners': encoded_owners}
     attributes_to_concat = ['genres', 'categories', 'platforms']
-    produce_encoded_dataframe(relevant_attributes, attributes_to_concat, steam_cp)
+    final_encoded_df = produce_encoded_dataframe(relevant_attributes, attributes_to_concat, steam_cp)
+    final_encoded_df.to_csv(Paths.ALL_DATA_FOLDER.value + '\\enc_steam.csv', index=False)
 
 
 if __name__ == '__main__':
